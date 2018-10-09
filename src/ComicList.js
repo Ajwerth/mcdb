@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import Comic from './Comic';
 
-class ComicsList extends Component {
+class ComicList extends Component {
   state = {
     comics: [],
   }
@@ -30,4 +30,4 @@ class ComicsList extends Component {
 }
 
 
-export default ComicsList;
+export default ComicList;

@@ -9,7 +9,8 @@ import {
 import logo from './mcdb_logo.png';
 import './App.css';
 
-import ComicsList from './ComicsList';
+import ComicList from './ComicList';
+import ComicDetail from './ComicDetail';
 
 const App = () => (
   <Router>
@@ -20,8 +21,8 @@ const App = () => (
         </Link>
       </header>
       <Switch>
-        <Route exact path="/" component={ComicsList} />
-        <Route path="/:id" component={Test} />
+        <Route exact path="/" component={ComicList} />
+        <Route path="/:id" component={ComicDetail} />
       </Switch>
     </div>
   </Router>
@@ -29,9 +30,3 @@ const App = () => (
 
 
 export default App;
-
-const Test = ({ match }) => (
-  <h1>
-    {match.params.id}
-    </h1>
-);
