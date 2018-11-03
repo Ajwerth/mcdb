@@ -8,7 +8,7 @@ class ComicDetail extends Component {
 
   async componentDidMount() {
     try {
-      const res = await fetch(`https://gateway.marvel.com:443/v1/public/series/${this.props.match.params.id}apikey=66ef26227cbc5462b13d6310153279e2`);
+      const res = await fetch(`https://gateway.marvel.com:443/v1/public/series?contains=trade%20paperback${this.props.match.params.id}$ts=$apikey=66ef26227cbc5462b13d6310153279e2$hash=`);
       const comic = await res.json();
       this.setState({
         comic,
@@ -19,15 +19,9 @@ class ComicDetail extends Component {
   }
 
   render() {
-    const results = this.state.comic.data.results.map(result => (
-      <div key={result.id}>
-        <h1>{result.title}</h1>
-        <p>{result.startYear}</p>
-      </div>
-    ));
     return (
       <div>
-        {results}
+        <h1>Hello</h1>
       </div>
     );
   }
