@@ -10,13 +10,13 @@ import {
 import logo from './mcdb_logo.png';
 import './App.css';
 
-//Importing Components
+// Importing Components
 import ComicList from './ComicList';
 import ComicDetail from './ComicDetail';
 
-// creating the app componenet
+// creating the App component
 const App = () => (
-  {/* wrap app in router */}
+  // wrap app in router
   <Router>
     <div className="App">
 
