@@ -1,5 +1,7 @@
 /* eslint react/destructuring-assignment:0 */
+// Import Dependencies
 import React, { Component } from 'react';
+// Import Components
 import Comic from './Comic';
 
 class ComicList extends Component {
