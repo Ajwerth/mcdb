@@ -2,30 +2,31 @@
 // Import Dependencies
 import React, { Component } from 'react';
 
-// Create ComicDetail Componenet for Individual Comic Details
 class ComicDetail extends Component {
   state = {
-    comics: [],
+    comic: {},
   }
 
-  // async await for the API Fetch
   async componentDidMount() {
     try {
-      const res = await fetch('https://gateway.marvel.com:443/v1/public/series?contains=trade%20paperback&apikey=66ef26227cbc5462b13d6310153279e2');
-      const comics = await res.json();
+      const res = await fetch(`https://gateway.marvel.com:443/v1/public/series/${this.props.match.params.id}?contains=trade%20paperback&apikey=66ef26227cbc5462b13d6310153279e2`);
+      const comic = await res.json();
       this.setState({
-        comics: comics.data.results,
+        comic,
       });
     } catch (e) {
       console.log(e);
     }
   }
 
-  // Render Comic
   render() {
+    console.log(this.state);
     return (
       <div>
-        <div>{this.state.comics}</div>
+        <h1>
+          {/* Check if this.state.comic.data is still undefined */}
+          {typeof this.state.comic.data === 'undefined' ? 'Loading' : this.state.comic.data.count}
+        </h1>
       </div>
     );
   }

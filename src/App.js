@@ -29,6 +29,7 @@ const App = () => (
       {/* Router Switch */}
       <Switch>
         <Route exact path="/" component={ComicList} />
+        {/* using the comic id to set up the route */}
         <Route path="/:id" component={ComicDetail} />
       </Switch>
 
