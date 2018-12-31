@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint react/destructuring-assignment:0 */
 // Import Dependencies
 import React, { Component } from 'react';
@@ -25,8 +26,9 @@ class ComicDetail extends Component {
       <div>
         <h1>
           {/* Check if this.state.comic.data is still undefined */}
-          {typeof this.state.comic.data === 'undefined' ? 'Loading' : this.state.comic.data.count}
+          {typeof this.state.comic.data === 'undefined' ? 'Loading' : this.state.comic.data.results[0].title}
         </h1>
+        <img />
       </div>
     );
   }
