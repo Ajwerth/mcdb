@@ -1,6 +1,6 @@
 /* eslint react/destructuring-assignment:0 */
-// Importing Dependencies
-import React, { Component } from 'react';
+// Dependencies
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -9,12 +9,11 @@ import {
 } from 'react-router-dom';
 import logo from './mcdb_logo.png';
 import './App.css';
-
-// Importing Components
+// Components
 import ComicList from './ComicList';
 import ComicDetail from './ComicDetail';
 
-// creating the App component
+// App component
 const App = () => (
   // wrap app in router
   <Router>

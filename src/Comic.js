@@ -1,13 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Styled from 'styled-components';
+
+// |||------Styled Component Start------
+const Wrapper = Styled.div`
+  
+`;
+// ------Styled Component End------|||
 
 const Comic = ({ comic }) => (
-  <div>
+  <Wrapper>
     <Link to={`/${comic.id}`}>
       <img src={`${comic.thumbnail.path}/portrait_uncanny.${comic.thumbnail.extension}`} alt={comic.title} />
     </Link>
-  </div>
+  </Wrapper>
 );
 
 export default Comic;
