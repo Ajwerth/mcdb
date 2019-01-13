@@ -10,9 +10,10 @@ import {
 import logo from './mcdb_logo.png';
 import './App.css';
 // Components
-import ComicList from './ComicList';
-import ComicDetail from './ComicDetail';
-
+// import ComicList from './Components/Comics/ComicList';
+// import ComicDetail from './Components/Comics/ComicDetail';
+import CharacterList from './Components/Characters/CharacterList';
+import CharacterDetail from './Components/Characters/CharacterDetail';
 // App component
 const App = () => (
   // wrap app in router
@@ -24,12 +25,11 @@ const App = () => (
           <img src={logo} className="App-logo" alt="logo" />
         </Link>
       </header>
-
       {/* Router Switch */}
       <Switch>
-        <Route exact path="/" component={ComicList} />
+        <Route exact path="/" component={CharacterList} />
         {/* using the comic id to set up the route */}
-        <Route path="/:id" component={ComicDetail} />
+        <Route path="/:id" component={CharacterDetail} />
       </Switch>
 
     </div>

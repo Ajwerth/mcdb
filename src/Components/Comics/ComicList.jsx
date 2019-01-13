@@ -10,7 +10,7 @@ import Comic from './Comic';
 const ComicGrid = Styled.div`
   display: grid;
   padding: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   justify-items: center;
   row-gap: 3rem;
 `;

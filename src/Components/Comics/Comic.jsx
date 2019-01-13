@@ -5,7 +5,10 @@ import Styled from 'styled-components';
 
 // |||------Styled Component Start------
 const Wrapper = Styled.div`
-  
+  img {
+    width: 100%;
+    max-width: 200px;
+  }
 `;
 // ------Styled Component End------|||
 
@@ -17,10 +20,10 @@ const Comic = ({ comic }) => (
   </Wrapper>
 );
 
-export default Comic;
-
 Comic.propTypes = {
   comic: PropTypes.shape({
     title: PropTypes.string.isRequired,
   }).isRequired,
 };
+
+export default Comic;
