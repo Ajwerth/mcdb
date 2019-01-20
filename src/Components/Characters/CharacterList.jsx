@@ -48,7 +48,6 @@ class CharacterList extends Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     if (nextProps.limit !== prevState.limit) {
-      console.log('Changed');
       return ({ limit: nextProps.limit }); // <- this is setState equivalent
     }
   }
