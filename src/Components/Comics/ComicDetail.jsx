@@ -3,42 +3,42 @@
 // Import Dependencies
 import React, { Component } from 'react';
 import Styled from 'styled-components';
-
+import { ClipLoader } from 'react-spinners';
 // |||------Styled Component Start------
 const ComicItem = Styled.div`
-padding: 0 10%;
+  padding: 0 10%;
 
-.comic-info{
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
+  .comic-info{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+  }
 
-img{
-  width: 100%;
-  max-width: 300px;
-  height: 100%;
-}
+  img{
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+  }
 
-.character-list{
-  h2{
-    padding: 0;
+  .character-list{
+    h2{
+      padding: 0;
+      margin: 0;
+    }
+
+    padding: 10px;
+  }
+
+  ul{
+    list-style: none;
+    text-align: left;
     margin: 0;
+    padding: 0;
+
+    li{
+      
+    }
   }
-
-  padding: 10px;
-}
-
-ul{
-  list-style: none;
-  text-align: left;
-  margin: 0;
-  padding: 0;
-
-  li{
-    
-  }
-}
 `;
 // ------Styled Component End------|||
 
@@ -64,7 +64,16 @@ class ComicDetail extends Component {
   render() {
     { /* Check if this.state.comic.data is still undefined */ }
     if (typeof this.state.comic.data === 'undefined') {
-      return 'Loading';
+      loading = true;
+      return (
+        <ClipLoader
+          css={override}
+          sizeUnit="px"
+          size={150}
+          color="#123abc"
+          loading={this.state.loading}
+        />
+      );
     }
 
     // Map Through the List of Characters in the individual Comic

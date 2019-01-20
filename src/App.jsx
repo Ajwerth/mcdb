@@ -5,10 +5,9 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
 } from 'react-router-dom';
-import logo from './mcdb_logo.png';
 import './App.css';
+import Header from './Components/Interface/Header';
 // Components
 // import ComicList from './Components/Comics/ComicList';
 // import ComicDetail from './Components/Comics/ComicDetail';
@@ -20,11 +19,7 @@ const App = () => (
   <Router>
     <div className="App">
 
-      <header className="App-header">
-        <Link to="/">
-          <img src={logo} className="App-logo" alt="logo" />
-        </Link>
-      </header>
+      <Header />
       {/* Router Switch */}
       <Switch>
         <Route exact path="/" component={CharacterList} />

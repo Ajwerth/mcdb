@@ -3,7 +3,7 @@
 // Import Dependencies
 import React, { Component } from 'react';
 import Styled from 'styled-components';
-
+import LinearProgress from '@material-ui/core/LinearProgress';
 // |||------Styled Component Start------
 const CharacterItem = Styled.div`
   padding: 0 10%;
@@ -64,14 +64,30 @@ class CharacterDetail extends Component {
   render() {
     { /* Check if this.state.comic.data is still undefined */ }
     if (typeof this.state.character.data === 'undefined') {
-      return 'Loading';
+      return (
+        <LinearProgress />
+      );
     }
+
+    const appearanceList = this.state.character.data.results[0].comics.items.map((comic, index) => (
+      <li key={index}>
+        <h3>{comic.name}</h3>
+      </li>
+    ));
 
     return (
       <CharacterItem>
         <h1>
           {this.state.character.data.results[0].name}
         </h1>
+        <img alt={this.state.character.data.results[0].name} src={`${this.state.character.data.results[0].thumbnail.path}` + `.${this.state.character.data.results[0].thumbnail.extension}`} />
+        {/* Create the UL of Characters in Individual Comic */}
+        <div className="character-list">
+          <h2>Appearances</h2>
+          <ul>
+            {appearanceList}
+          </ul>
+        </div>
       </CharacterItem>
     );
   }
