@@ -75,11 +75,13 @@ class CharacterDetail extends Component {
       </li>
     ));
 
+
     return (
       <CharacterItem>
         <h1>
           {this.state.character.data.results[0].name}
         </h1>
+
         <img alt={this.state.character.data.results[0].name} src={`${this.state.character.data.results[0].thumbnail.path}` + `.${this.state.character.data.results[0].thumbnail.extension}`} />
         {/* Create the UL of Characters in Individual Comic */}
         <div className="character-list">
