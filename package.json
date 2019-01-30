@@ -2,7 +2,7 @@
   "name": "mcdb",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Ajwerth.github.io/mcdb/",
+  "homepage": "https://mcdb.netlify.com",
   "dependencies": {
     "@material-ui/core": "^3.9.0",
     "gh-pages": "^2.0.0",
