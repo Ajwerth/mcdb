@@ -10,7 +10,7 @@ import Character from './Character';
 // |||------Styled Component Start------
 const CharacterGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   grid-auto-rows: 345px;
   grid-gap: 3rem;
   padding: 1rem;
@@ -27,7 +27,7 @@ const CharContainer = styled.div`
 class CharacterList extends Component {
   state = {
     characters: [],
-    limit: 20,
+    limit: 16,
   }
 
   async componentDidMount() {
@@ -55,7 +55,7 @@ class CharacterList extends Component {
       const res = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=${nextNum}&apikey=66ef26227cbc5462b13d6310153279e2`);
       const characters = await res.json();
       this.setState({
-        limit: this.state.limit + 20,
+        limit: this.state.limit + 16,
         characters: [...characters.data.results],
       });
     } catch (e) {
@@ -80,14 +80,9 @@ class CharacterList extends Component {
       <CharContainer>
         <CharacterGrid>
           {this.state.characters
-            .filter((character) => {
-              if (character.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available') {
-                return character;
-              }
-            })
-            .map(character => (
-              <Character key={character.id} character={character} />
-            ))
+            .filter(character => character.thumbnail.path !== 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available')
+            .map(character => <Character key={character.id} character={character} />,
+            )
           }
         </CharacterGrid>
       </CharContainer>

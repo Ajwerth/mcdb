@@ -5,28 +5,27 @@ import Styled from 'styled-components';
 
 // |||------Styled Component Start------
 const CharacterIcon = Styled.div`
-    box-shadow: .5rem .5rem .5rem #8a8a8a;
+    box-shadow: .4rem .4rem .4rem #8a8a8a;
     padding: 10px 0;
     transform: skewY(5deg);
     overflow: hidden;
     width: 100%;
     background: #222;
+
+    &:hover {
+      background: #fd0000;
+      box-shadow: .2rem .2rem .2rem #8a8a8a;
+    };
     
     a{
         color: #fff;
         text-decoration: none;
 
-        P{
-          transform: skewY(-5deg);
-        }
-
-
     }
 
     img {
         width: 100%;
-
-        border: 2px solid ##fd0000:
+        border: 2px solid #fd0000:
     }
     
 
