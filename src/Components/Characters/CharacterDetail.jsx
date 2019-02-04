@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import LinearProgress from '@material-ui/core/LinearProgress';
 // |||------Styled Component Start------
 const CharacterItem = styled.div`
-  display: flex;
   padding: 0 10%;
 
   .character-info{
@@ -15,11 +14,14 @@ const CharacterItem = styled.div`
     justify-content: center;
   }
 
-  img{
-    width: 100%;
-    max-width: 300px;
-    height: 100%;
-  }
+`;
+
+const CharacterTitle = styled.div`
+
+`;
+
+const CharacterInfo = styled.div`
+  display: flex;
 
 `;
 
@@ -30,7 +32,9 @@ const ImageDesc = styled.div`
   flex-direction: column;
   
   img{
-    transform: skewY(5deg);
+    width: 100%;
+    max-width: 400px;
+    margin: 1.5rem;
   }
   
   p{
@@ -99,26 +103,30 @@ class CharacterDetail extends Component {
 
     return (
       <CharacterItem>
-        {/* Character Name */}
-        <h1>
-          {this.state.character.data.results[0].name}
-        </h1>
+        <CharacterTitle>
+          {/* Character Name */}
+          <h1>
+            {this.state.character.data.results[0].name}
+          </h1>
+        </CharacterTitle>
 
-        <ImageDesc>
-          {/* Character Image */}
-          <img alt={this.state.character.data.results[0].name} src={`${this.state.character.data.results[0].thumbnail.path}.${this.state.character.data.results[0].thumbnail.extension}`} />
+        <CharacterInfo>
+          <ImageDesc>
+            {/* Character Image */}
+            <img alt={this.state.character.data.results[0].name} src={`${this.state.character.data.results[0].thumbnail.path}.${this.state.character.data.results[0].thumbnail.extension}`} />
 
-          {/* Character Description */}
-          <p>{this.state.character.data.results[0].description}</p>
-        </ImageDesc>
+            {/* Character Description */}
+            <p>{this.state.character.data.results[0].description}</p>
+          </ImageDesc>
 
-        {/* List Of Comic Appearance By This Character */}
-        <AppearancesList>
-          <h2>Appearances</h2>
-          <ul>
-            {appearanceList}
-          </ul>
-        </AppearancesList>
+          {/* List Of Comic Appearance By This Character */}
+          <AppearancesList>
+            <h2>Appearances</h2>
+            <ul>
+              {appearanceList}
+            </ul>
+          </AppearancesList>
+        </CharacterInfo>
       </CharacterItem>
     );
   }
