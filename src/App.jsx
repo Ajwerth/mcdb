@@ -14,18 +14,17 @@ import Header from './Components/Interface/Header';
 import CharacterList from './Components/Characters/CharacterList';
 import CharacterDetail from './Components/Characters/CharacterDetail';
 // App component
-const baseUrl = process.env.PUBLIC_URL;
 const App = () => (
   // wrap app in router
-  <Router>
+  <Router basename="/mcdb">
     <div className="App">
 
       <Header />
       {/* Router Switch */}
       <Switch>
-        <Route exact path={`${baseUrl}/`} component={CharacterList} />
+        <Route exact path="/" component={CharacterList} />
         {/* using the comic id to set up the route */}
-        <Route path={`${baseUrl}/id`} component={CharacterDetail} />
+        <Route path="/id" component={CharacterDetail} />
       </Switch>
 
     </div>
