@@ -24,7 +24,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={CharacterList} />
         {/* using the comic id to set up the route */}
-        <Route path="/id" component={CharacterDetail} />
+        <Route path="/:id" component={CharacterDetail} />
       </Switch>
 
     </div>
