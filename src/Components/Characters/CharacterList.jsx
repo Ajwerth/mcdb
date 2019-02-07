@@ -27,14 +27,18 @@ const CharContainer = styled.div`
 class CharacterList extends Component {
   state = {
     characters: [],
-    limit: 16,
+    limit: 20,
+    offset: 0,
   }
 
   async componentDidMount() {
+    const md5 = require('md5');
+    const timeStamp = new Date();
+    const hash = md5(`${timeStamp}2e5d72da891f2b5ca57fe0b1a06a26f20a62222066ef26227cbc5462b13d6310153279e2`);
     window.addEventListener('scroll', this.onScroll, false);
     try {
       // fetch initial list with default limit of 20
-      const res = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=${this.state.limit}&apikey=66ef26227cbc5462b13d6310153279e2`);
+      const res = await fetch(`https://gateway.marvel.com:443/v1/public/characters?ts=${timeStamp}&apikey=66ef26227cbc5462b13d6310153279e2&hash=${hash}&limit=${this.state.limit}`);
       const characters = await res.json();
       this.setState({
         characters: characters.data.results,
@@ -48,14 +52,15 @@ class CharacterList extends Component {
     window.removeEventListener('scroll', this.onScroll, false);
   }
 
-  // increment the limit of comics by 20
+  // increment the limit and offset of comics by 20
   incrementLimit = async () => {
     try {
       const nextNum = this.state.limit + 20;
-      const res = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=${nextNum}&apikey=66ef26227cbc5462b13d6310153279e2`);
+      const nextOffset = this.state.limit >= 90 ? this.state.offset + 20 : this.state.offset = 0;
+      const res = await fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=${nextNum}&offset=${nextOffset}&apikey=66ef26227cbc5462b13d6310153279e2`);
       const characters = await res.json();
       this.setState({
-        limit: this.state.limit + 16,
+        limit: this.state.limit + 20,
         characters: [...characters.data.results],
       });
     } catch (e) {
@@ -68,6 +73,10 @@ class CharacterList extends Component {
       (window.innerHeight + window.scrollY) >= (document.body.offsetHeight)
       && this.state.characters.length
     ) { this.incrementLimit(); }
+  }
+
+  addOffset = () => {
+
   }
 
   render() {
